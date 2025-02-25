@@ -18,7 +18,7 @@
         let attemptsLeft = 5; // 🔥 Limited Attempts
 
         function checkGuess() {
-            let guess = parseInt(document.getElementById("guess").value); // 🔥 FIXED
+            let guess = parselnt(document.getElementById("guess").value); // 🔥 FIXED
             let message = "";
 
             if (isNaN(guess)) {
@@ -37,7 +37,7 @@
             }
 
             if (attemptsLeft === 0 && guess !== secretNumber) {
-                message = ❌ Game Over! The correct number was ${secretNumber}.;
+                message = ' ❌ Game Over! The correct number was ${secretNumber}.';
             }
 
             document.getElementById("message").innerText = message;
