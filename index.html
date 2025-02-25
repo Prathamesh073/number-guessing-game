@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,14 +18,16 @@
         let attemptsLeft = 5; // 🔥 Limited Attempts
 
         function checkGuess() {
-            let guess = document.getElementById("guess").value;
+            let guess = parseInt(document.getElementById("guess").value); // 🔥 FIXED
             let message = "";
 
-            if (attemptsLeft > 0) {
+            if (isNaN(guess)) {
+                message = "❌ Please enter a valid number!";
+            } else if (attemptsLeft > 0) {
                 if (guess < secretNumber) {
-                    message = "Too low! Try again.";
+                    message = "📉 Too low! Try again.";
                 } else if (guess > secretNumber) {
-                    message = "Too high! Try again.";
+                    message = "📈 Too high! Try again.";
                 } else {
                     message = "🎉 Congratulations! You guessed it right!";
                     attemptsLeft = 0; // Game Over
@@ -35,8 +36,8 @@
                 document.getElementById("attempts").innerText = attemptsLeft;
             }
 
-            if (attemptsLeft === 0 && guess != secretNumber) {
-                message = game over ! The correct number was ${secretNumber}.; 
+            if (attemptsLeft === 0 && guess !== secretNumber) {
+                message = ❌ Game Over! The correct number was ${secretNumber}.;
             }
 
             document.getElementById("message").innerText = message;
